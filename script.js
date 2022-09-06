@@ -59,6 +59,11 @@ let updateLibrary=function(books){
     
 }
 
+let removeBook=function(index){
+    library.splice(index,1);
+    updateLibrary(library);
+}
+
 //initializing data
 for (let i in initialData){
     let newbook= new Book(initialData[i].title,initialData[i].author,initialData[i].isRead);
