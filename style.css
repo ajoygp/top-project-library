@@ -24,6 +24,10 @@ footer{
     background-color: #86efac;
     grid-column: 2/3;
     grid-row:2/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .container{
@@ -59,3 +63,57 @@ footer{
 .not-read{
     background-color: #fecaca;
 }
+
+
+input[type=checkbox], input[type=radio] {
+    width: auto;
+    border: none;
+}
+
+input:focus, textarea:focus {
+    border-color: #000;
+}
+
+
+fieldset {
+    
+    box-sizing: border-box;
+    border: 1px solid #999;
+}
+
+button {
+    margin: 20px 0 0 124px;
+}
+
+input {
+    font: 1em sans-serif;
+    padding-right: 1%;
+    box-sizing: border-box;
+    border: 1px solid #999;
+}
+
+form {
+    margin: 0 auto;
+    
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+
+label{
+    width: 120px;
+    text-align: right;
+}
+
+fieldset p{
+    padding-top: 3%;
+}
+
+label{
+    margin-right: 15%;
+}
+
+ legend{
+    font-size: larger;
+    font-weight: bold;
+ }
