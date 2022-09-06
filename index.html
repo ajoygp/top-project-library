@@ -17,13 +17,17 @@
         <fieldset>
             <legend>Add a new book</legend>
             <form  method="post">
-            <p><label for="title">Title</label></p>
-            <input type="text" name="title" id="title">
+            <p><label for="title-input">Title</label></p>
+            <input type="text" name="title" id="title-input">
 
-            <p><label for="title">Author</label></p>
-            <input type="text" name="author" id="author">
+            <p><label for="author-input">Author</label></p>
+            <input type="text" name="author" id="author-input">
 
-            <p><label for="title">I have read this<input type="checkbox" name="title" id="title"></label></p>
+            <p><label for="isread-input">I have <select name="cars" id="isread-input">
+                <option value="1">Read</option>
+                <option value="0">Not Read</option>
+              </select> this book.
+                
             
             
             </form>
