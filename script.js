@@ -39,21 +39,30 @@ let updateLibrary=function(books){
     for(let i in books){
        let bookCard=document.createElement("div");
         bookCard.classList.add("book-card");
-        bookCard.setAttribute("data-index",i);
+        
 
         let author=document.createElement("p");
-        author.classList.add("card-author")
+        author.classList.add("card-author");
         author.innerText=books[i].author;
 
         let title=document.createElement("p");
-        title.classList.add("card-title")
+        title.classList.add("card-title");
         title.innerText=books[i].title;
+
+        let removeButton=document.createElement("button");
+        removeButton.classList.add("remove-button");
+        removeButton.innerText="X"
+        removeButton.setAttribute("data-index",i);
+        removeButton.addEventListener("click",()=>{
+            removeBook(removeButton.dataset.index);
+        })
 
         bookCard.classList.add(books[i].isRead?"read":"not-read");
         
 
         bookCard.appendChild(title);
         bookCard.appendChild(author);
+        bookCard.appendChild(removeButton);
         container.appendChild(bookCard); 
     }
     
@@ -76,6 +85,7 @@ let authorInput=document.querySelector("#author-input");
 let titleInput=document.querySelector("#title-input");
 let isReadInput=document.querySelector("#isread-input");
 
+
 addButton.addEventListener("click",()=>{
     if(titleInput.value && authorInput.value && isReadInput.value){
         let newBook= new Book(titleInput.value,authorInput.value,isReadInput.value==1?true:false);
@@ -84,4 +94,9 @@ addButton.addEventListener("click",()=>{
     }
    
 })
+
+
+
+ 
+
 
