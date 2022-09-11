@@ -34,7 +34,16 @@ let Book= function(title,author,isRead){
     this.isRead=isRead;
 }
 
-let updateLibrary=function(books){
+Book.prototype.toggleRead=function(){
+    this.isRead=!this.isRead;
+}
+
+let removeBook=function(index){
+    library.splice(index,1);
+    renderLibrary(library);
+}
+
+let renderLibrary=function(books){
     container.innerHTML="";
     for(let i in books){
        let bookCard=document.createElement("div");
@@ -57,28 +66,36 @@ let updateLibrary=function(books){
             removeBook(removeButton.dataset.index);
         })
 
+        let toggleRead=document.createElement("button");
+        toggleRead.classList.add("toggle-read");
+        
+        toggleRead.addEventListener("click",()=>{
+            books[i].toggleRead()
+            renderLibrary(library);
+
+
+        })
+        
+        toggleRead.innerText=books[i].isRead?"Mark Unread":"Mark Read";
         bookCard.classList.add(books[i].isRead?"read":"not-read");
         
-
         bookCard.appendChild(title);
         bookCard.appendChild(author);
-        bookCard.appendChild(removeButton);
+        bookCard.appendChild(removeButton); 
+        bookCard.appendChild(toggleRead); 
         container.appendChild(bookCard); 
     }
     
 }
 
-let removeBook=function(index){
-    library.splice(index,1);
-    updateLibrary(library);
-}
+
 
 //initializing data
 for (let i in initialData){
     let newbook= new Book(initialData[i].title,initialData[i].author,initialData[i].isRead);
     library.push(newbook);
 }
-updateLibrary(library)
+renderLibrary(library)
 
 let addButton=document.querySelector("#add-button");
 let authorInput=document.querySelector("#author-input");
@@ -90,7 +107,7 @@ addButton.addEventListener("click",()=>{
     if(titleInput.value && authorInput.value && isReadInput.value){
         let newBook= new Book(titleInput.value,authorInput.value,isReadInput.value==1?true:false);
         library.push(newBook); 
-        updateLibrary(library);
+        renderLibrary(library);
     }
    
 })
