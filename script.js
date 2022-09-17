@@ -28,15 +28,19 @@ let initialData=[
 
 let container=document.querySelector(".container");
 
-let Book= function(title,author,isRead){
-    this.title=title;
-    this.author=author;
-    this.isRead=isRead;
+
+class Book{
+    constructor(title,author,isRead){
+        this.title=title;
+        this.author=author;
+        this.isRead=isRead;
+    }
+    toggleRead=function(){
+        this.isRead=!this.isRead;
+    }
+
 }
 
-Book.prototype.toggleRead=function(){
-    this.isRead=!this.isRead;
-}
 
 let removeBook=function(index){
     library.splice(index,1);
