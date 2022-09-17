@@ -43,11 +43,8 @@ footer{
     background-color: #f0fdf4;
     grid-column: 1/2;
     grid-row: 2/3;
-
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    
-   
     
 }
 
